@@ -1,0 +1,45 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class Livro {
+    private String titulo;
+    private String autor;
+    private int anoPublicacao;
+
+    public Livro(String titulo, String autor, int anoPublicacao) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.anoPublicacao = anoPublicacao;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public int getAnoPublicacao() {
+        return anoPublicacao;
+    }
+}
+
+abstract class Biblioteca {
+    protected String nome;
+    protected Map<String, Livro> acervo;
+
+    public Biblioteca(String nome) {
+        this.nome = nome;
+        this.acervo = new HashMap<>();
+    }
+
+    public abstract Livro buscarLivro(String titulo);
+
+    public void adicionarLivro(Livro livro) {
+        acervo.put(livro.getTitulo(), livro);
+    }
+}
